@@ -29,10 +29,8 @@ object Main {
    */
   def balance(chars: List[Char]): Boolean = {
     def balance(paren: => Int, chars: List[Char]): Int = {
-      if (chars.isEmpty) return paren
-      if (paren < 0) return paren
-      
-	  if (chars.head == '(') balance(paren + 1, chars.tail)
+      if (chars.isEmpty || paren < 0) paren
+      else if (chars.head == '(') balance(paren + 1, chars.tail)
 	  else if (chars.head == ')') balance(paren - 1, chars.tail);
 	  else balance(paren, chars.tail)
     }
@@ -45,8 +43,8 @@ object Main {
    * Exercise 3
    */
   def countChange(money: Int, coins: List[Int]): Int = {
-    if (money == 0) return 1
-    else if (money < 0 || coins.isEmpty) return 0
+    if (money == 0) 1
+    else if (money < 0 || coins.isEmpty) 0
     else countChange(money, coins.tail) + countChange(money - coins.head, coins)
   }
 }

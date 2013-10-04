@@ -24,4 +24,8 @@ class PascalSuite extends FunSuite {
   test("pascal: col=1,row=3") {
     assert(pascal(1,3) === 3)
   }
+  
+  test("pascal Check for infinite loops!") {
+    assert(pascal(-1,-3) === 0)
+  }
 }

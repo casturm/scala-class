@@ -25,10 +25,11 @@ object Lists {
    */
   def sum(xs: List[Int]): Int = {
     if (xs.isEmpty) {
-      return 0
+      0
     }
-    var itsSum = xs.head + sum(xs.tail)
-    itsSum
+    else {
+      xs.head + sum(xs.tail)
+    }
   }
 
   /**
@@ -55,11 +56,7 @@ object Lists {
   } 
   
   def compare(a: Int, b: Int): Int = {
-    if (a > b) {
-      a
-    }
-    else {
-      b
-    }
+    if (a > b) a
+    else b
   }
 }
