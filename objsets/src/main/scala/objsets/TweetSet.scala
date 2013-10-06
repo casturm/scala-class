@@ -9,7 +9,7 @@ import TweetReader._
 class Tweet(val user: String, val text: String, val retweets: Int) {
   override def toString: String =
     "User: " + user + "\n" +
-    "Text: " + text + " [" + retweets + "]"
+      "Text: " + text + " [" + retweets + "]"
 }
 
 /**
@@ -56,8 +56,8 @@ abstract class TweetSet {
    * Question: Should we implment this method here, or should it remain abstract
    * and be implemented in the subclasses?
    */
-   def union(that: TweetSet): TweetSet =
-     this.filterAcc((tweet: Tweet) => true, that)
+  def union(that: TweetSet): TweetSet =
+    this.filterAcc((tweet: Tweet) => true, that)
 
   /**
    * Returns the tweet from this set which has the greatest retweet count.
@@ -85,7 +85,6 @@ abstract class TweetSet {
    * and be implemented in the subclasses?
    */
   def descendingByRetweet: TweetList
-
 
   /**
    * The following methods are already implemented
@@ -161,7 +160,6 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
   def descendingByRetweet: TweetList =
     new Cons(mostRetweeted, remove(mostRetweeted).descendingByRetweet)
 
-
   /**
    * The following methods are already implemented
    */
@@ -209,7 +207,6 @@ object Nil extends TweetList {
 class Cons(val head: Tweet, val tail: TweetList) extends TweetList {
   def isEmpty = false
 }
-
 
 object GoogleVsApple {
   val google = List("android", "Android", "galaxy", "Galaxy", "nexus", "Nexus")
